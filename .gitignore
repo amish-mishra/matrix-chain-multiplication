@@ -1,2 +1,4 @@
 # Ignore the csv outputted
 *.csv
+
+__pycache__
