@@ -4,6 +4,7 @@ Given a sequence (chain) of matrices with compatible dimensions A_1,A_2, ..., A_
 For example, suppose A is a 10 × 50 matrix, B is a 50 × 5 matrix, and C is a 5 × 100 matrix. Then, 
 
 `(AB)C = (10 x 50 x 5) + (10 x 5 x 100) = 7500 operations`
+
 `A(BC) = (50 x 5 x 100) + (10 x 50 x 100) = 75000 operations`.
 
 # Overview of project
