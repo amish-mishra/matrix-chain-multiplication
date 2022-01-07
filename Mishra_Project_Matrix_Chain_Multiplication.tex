@@ -91,8 +91,9 @@ P(n) = \left\{
     \right.
 \end{equation*}
 I see that the base case holds since $1 \geq (1/4)2^n$ for $n=1.$ Now, I assume that there exists some constant $c$ such that $P(n) \geq c2^n$ for every $n \geq 2$. I perform the inductive step on $P(n+1)$:
-$$P(n+1) = \sum_{k=1}^{n-1} P(k)P(n-k) \geq 2^n \sum_{k=1}^{n-1} 2c = 2(n-1)c2^n.$$
-Thus, I have found a constant $2(n-1)c$ so that $2(n-1)c2^n$ is a lower bound for $P(n)$. Hence, I conclude that the run-time for Brute-Chain is $\Omega(2^n).$
+$$P(n+1) = \sum_{k=1}^{n} P(k)P(n+1-k) =P(n)P(n+1-n)+\sum_{k=1}^{n-1} P(k)P(n+1-k) $$
+$$\geq P(n)P(1)+c2^n \geq c2^n+c2^n = c2^{n+1}.$$
+Thus, I have found a constant $c$ so that $c2^{n+1}$ is a lower bound for $P(n+1)$. Hence, I conclude that the run-time for Brute-Chain is $\Omega(2^n)$ by induction.
 \newline
 The run-time analysis for Dynamic-Chain will be done directly from the pseudo-code. The first for-loop runs in $O(n)$ time. Then, the first level of the next for-loop runs in $O(n)$ time since $l$ ranges from 2 to $n$. The next level of the for-loop in the nest runs in $O(n)$ time. The next level of the for-loop nest runs in $O(n)$ time as well since $j$ can take on values close to $n$ while $i$ can take values close to $1$ simultaneously. Thus, the run-time of Dynamic-Chain is $O(n^3)$ due to the triple nested for-loop.
 
@@ -158,6 +159,8 @@ I calculated the ratio of the actual run-time with the theoretical run-time ($n^
     \label{table:dynamic-chain}
 \end{table}
 
+\newpage
+
 \subsection{Graphs}
 The graphs for this project consist of the following:
 \begin{enumerate}
@@ -166,28 +169,29 @@ The graphs for this project consist of the following:
     \item Empirical run-time of Brute-Chain compared with Empirical run-time of Dynamic-Chain in Figure~\ref{fig:brute_vs_dynamic}
 \end{enumerate}
 The run-time of the algorithms is plotted on the y-axis in seconds and $n$ (length of input) is on the x-axis.
-\begin{figure}
-    \includegraphics[scale=.8]{Analysis of Algs/brute_emp_vs_pred.png}
+\begin{figure}[h!]
+    \includegraphics[scale=.8]{brute_emp_vs_pred.png}
     \caption{Empirical run-time compared with predicted run-time for Brute-Chain}
     \label{fig:brute-chain}
 \end{figure}
 
-\begin{figure}
-    \includegraphics[scale=.8]{Analysis of Algs/dynamic_emp_vs_pred.png} 
+\begin{figure}[h!]
+    \includegraphics[scale=.8]{dynamic_emp_vs_pred.png} 
     \caption{Empirical run-time compared with predicted run-time for Dynamic-Chain}
     \label{fig:dynamic-chain}
 \end{figure}
 
-\begin{figure}
-    \includegraphics[scale=.8]{Analysis of Algs/brute_vs_dynamic.png}  
+\begin{figure}[h!]
+    \includegraphics[scale=.8]{brute_vs_dynamic.png}  
     \caption{Empirical run-time of Brute-Chain compared with Empirical run-time of Dynamic-Chain}
     \label{fig:brute_vs_dynamic}
 \end{figure}
 
 
-
 \section{Conclusion}
 I have confirmed empirically that the dynamic programming approach to solving the matrix chain multiplication problem is far more efficient than a brute force approach. It is incredible to see that brute force becomes infeasible in real application when the number of matrices in the chain exceeds 16 because the run time doubles for every matrix multiplied into the chain. Dynamic programming keeps the run-time at a reasonable $O(n^3)$. Thus, it is a fruitful technique to use in problems that require optimizing subproblems and when subproblems overlap often. The matrix chain multiplication problem is a clear example of the utility of dynamic programming.
+
+\pagebreak
 
 \begin{thebibliography}{1}
   \bibitem{CLRS} T. H. Cormen, C. E. Leiserson, R. L. Rivest, and C. Stein, {\em Introduction to Algorithms, 3rd edition}, The MIT Press, 2009, ISBN: 026203384.
