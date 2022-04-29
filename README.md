@@ -17,4 +17,4 @@ In this project, I implemented in python two algorithms and analyzed their theor
 
 
 
-  I then summarize my results in the PDF project file.
+The results and full report are in the [PDF project file.](https://github.com/amish-mishra/matrix-chain-multiplication/blob/main/Mishra_Project_Matrix_Chain_Multiplication.pdf)
